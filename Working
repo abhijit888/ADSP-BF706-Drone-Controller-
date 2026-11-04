@@ -1,0 +1,86 @@
+# Drone Control System Using Dual ADSP-BF706 Controllers
+
+## Project Overview
+
+This project implements a custom drone control system using two ADSP-BF706 Blackfin+ processors configured as a transmitter and receiver.
+
+The transmitter reads joystick and potentiometer inputs, processes the control values, and transmits them to the receiver through UART communication. The receiver generates four PWM control signals for interfacing with a KK2.1 flight controller.
+
+## System Architecture
+
+**Transmitter → UART Communication → Receiver → PWM Outputs → KK2.1 Flight Controller**
+
+## Hardware Components
+
+- 2 × ADSP-BF706 EZ-KIT Mini boards
+- ADS1115 16-bit ADC module
+- Joystick and potentiometer inputs
+- KK2.1 flight controller
+- SG90 servo motor (for testing)
+- Supporting hardware and connecting wires
+
+## Software and Development Tools
+
+- CrossCore Embedded Studio (CCES) 2.12.1
+- Embedded C
+- UART communication
+- I2C / TWI communication
+- Timer-based PWM generation
+
+## Transmitter Module
+
+The transmitter processor reads joystick and potentiometer inputs. The ADS1115 module is used to acquire analog joystick values through the I2C interface.
+
+Processed control data is transmitted to the receiver using UART0.
+
+**UART connection:**
+- PB8 – UART TX
+- PB9 – UART RX
+
+## Receiver Module
+
+The receiver processor receives the transmitted control data and generates four PWM control channels.
+
+**PWM channels:**
+1. Throttle
+2. Yaw
+3. Pitch
+4. Roll
+
+These signals are interfaced with the KK2.1 flight controller.
+
+## Key Features
+
+- Dual ADSP-BF706 processor architecture
+- Wireless-control architecture with a UART-based inter-board communication link
+- Joystick input acquisition
+- ADS1115-based analog input processing
+- Four-channel PWM signal generation
+- Flight controller interfacing
+- Servo-based control testing
+
+## Project Objectives
+
+- Develop a custom embedded drone control system.
+- Implement reliable communication between two embedded processors.
+- Generate precise control signals using timer-based PWM.
+- Understand real-time embedded system interfacing.
+
+## Project Status
+
+Hardware interfacing, UART communication, joystick input processing and PWM output testing have been implemented.
+
+## Future Improvements
+
+- Wireless communication between transmitter and receiver
+- Communication error detection and failsafe handling
+- Improved control signal filtering
+- Enhanced system monitoring and diagnostics
+
+## Author
+
+**Abhijit Pingale**
+
+Embedded Systems | Electronics | IoT | Robotics
+
+GitHub: https://github.com/abhijit888
